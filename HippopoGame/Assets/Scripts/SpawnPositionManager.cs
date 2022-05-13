@@ -9,10 +9,7 @@ public class SpawnPositionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (hippoSpawn == null)
-        {
-            Debug.Log("pas là");
-        }
+
     }
 
     // Update is called once per frame
