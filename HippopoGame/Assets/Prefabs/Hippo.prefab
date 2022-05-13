@@ -4865,6 +4865,7 @@ GameObject:
   - component: {fileID: 5098612035127330876}
   - component: {fileID: 5098612035127330879}
   - component: {fileID: 6318549574168268603}
+  - component: {fileID: 7794372958079839223}
   m_Layer: 0
   m_Name: Hippo
   m_TagString: Untagged
@@ -4901,7 +4902,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
@@ -4912,7 +4913,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5332404278745631403}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 0ff9daca37c744685926c9e11556cd52, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -4944,13 +4945,27 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5332404278745631403}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 0ff9daca37c744685926c9e11556cd52, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.35303685
   m_Height: 3.9334905
   m_Direction: 2
   m_Center: {x: 0, y: 1.3, z: -0.09968436}
+--- !u!114 &7794372958079839223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5332404278745631403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481374aad9fe94dd7b5269d32ecff43f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasLanded: 0
+  mAnimator: {fileID: 5098612035127330879}
 --- !u!1 &5355409814978021419
 GameObject:
   m_ObjectHideFlags: 0
