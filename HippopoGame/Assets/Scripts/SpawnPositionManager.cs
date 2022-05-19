@@ -15,7 +15,6 @@ public class SpawnPositionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(hippoSpawn.lastHighestPosition);
-        gameObject.transform.position = new Vector3(0, hippoSpawn.lastHighestPosition + 5, 0);
+        gameObject.transform.position = new Vector3(0, this.hippoSpawn.lastHighestPosition + 5, 0);
     }
 }

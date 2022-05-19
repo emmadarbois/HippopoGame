@@ -9,6 +9,7 @@ public class HippoSpawn : MonoBehaviour
     private Hippo hippoScript;
     private List<GameObject> HippoList = new List<GameObject>();
     public float lastHighestPosition = 0f;
+    public float lastHighestHitPoint = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,8 @@ public class HippoSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this.checkHighestHippo();
+
         if (Input.GetButtonDown("Fire1"))
         {
             this.dropHippo();
@@ -26,8 +29,9 @@ public class HippoSpawn : MonoBehaviour
 
         if (hippoScript.hasLanded)
         {
-            this.checkHighestHippo();
             this.spawnWaitingHippo();
+
+            this.checkHighestHippoTouchingDown();
         }
     }
 
@@ -35,30 +39,56 @@ public class HippoSpawn : MonoBehaviour
     {
         hippo = Instantiate(prefab, transform);
         hippoScript = hippo.GetComponent<Hippo>();
-
-        HippoList.Add(hippo);
     }
 
     void dropHippo()
     {
         hippo.GetComponent<Rigidbody>().isKinematic = false;
         hippo.transform.parent = null;
+        HippoList.Add(hippo);
     }
 
     void checkHighestHippo()
     {
         float lastPosition = 0f;
-        for(int i = 0; i<HippoList.Count; ++i)
+
+        if (this.HippoList.Count == 0)
         {
-            GameObject currentHippo = HippoList[i];
+            return;
+        }
+
+        for(int i = 0; i<this.HippoList.Count; ++i)
+        {
+            GameObject currentHippo = this.HippoList[i];
 
             if (lastPosition < currentHippo.transform.position.y)
             {
                 lastPosition = currentHippo.transform.position.y;
             }
-
         }
 
         this.lastHighestPosition = lastPosition;
+    }
+
+    void checkHighestHippoTouchingDown()
+    {
+        float lastPosition = 0f;
+
+        if (this.HippoList.Count == 0)
+        {
+            return;
+        }
+
+        for (int i = 0; i < this.HippoList.Count; ++i)
+        {
+            GameObject currentHippo = this.HippoList[i];
+
+            if (lastPosition < currentHippo.transform.position.y)
+            {
+                lastPosition = currentHippo.transform.position.y;
+            }
+        }
+
+        this.lastHighestHitPoint = lastPosition;
     }
 }

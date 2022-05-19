@@ -16,8 +16,8 @@ public class CameraPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PositionGoal = new Vector3(0, hippoSpawn.lastHighestPosition + 2, -30);
+            PositionGoal = new Vector3(0, hippoSpawn.lastHighestPosition + 4, -27);
 
-        transform.position = Vector3.MoveTowards(transform.position, PositionGoal, 1f * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, PositionGoal, 2f * Time.deltaTime);
     }
 }

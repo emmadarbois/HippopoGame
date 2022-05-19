@@ -6,6 +6,7 @@ public class Hippo : MonoBehaviour
 {
     public bool hasLanded = false;
     public Animator mAnimator;
+    public AudioSource boing;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,11 @@ public class Hippo : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        this.hasLanded = true;
-        mAnimator.SetTrigger("TrIdle");
+        if (!this.hasLanded)
+        {
+            boing.Play();
+            this.hasLanded = true;
+            mAnimator.SetTrigger("TrIdle");
+        }
     }
 }
