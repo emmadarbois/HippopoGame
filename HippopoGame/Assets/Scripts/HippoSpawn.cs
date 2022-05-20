@@ -44,6 +44,7 @@ public class HippoSpawn : MonoBehaviour
     void dropHippo()
     {
         hippo.GetComponent<Rigidbody>().isKinematic = false;
+        hippo.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         hippo.transform.parent = null;
         HippoList.Add(hippo);
     }

@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class ResetScene : MonoBehaviour
 {
+    public AudioSource bonk;
+
+    void Start()
+    {
+
+    }
+
     public void ResetGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        bonk.Play();
     }
 }

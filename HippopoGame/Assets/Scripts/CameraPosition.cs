@@ -18,6 +18,6 @@ public class CameraPosition : MonoBehaviour
     {
             PositionGoal = new Vector3(0, hippoSpawn.lastHighestPosition + 4, -27);
 
-            transform.position = Vector3.MoveTowards(transform.position, PositionGoal, 2f * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, PositionGoal, 2.5f * Time.deltaTime);
     }
 }

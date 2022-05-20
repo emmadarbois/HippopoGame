@@ -6,10 +6,10 @@ using TMPro;
 public class Score : MonoBehaviour
 {
     public HippoSpawn hippoSpawn;
-    public TextMeshPro text;
+    public TextMeshProUGUI text;
+    public bool isHighScore;
 
-    public Vector3 PositionGoal;
-    public float score = 0f;
+    private int score = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -19,17 +19,21 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PositionGoal = new Vector3(transform.position.x, this.hippoSpawn.lastHighestPosition + 10, transform.position.z);
-
-        transform.position = Vector3.MoveTowards(transform.position, PositionGoal, 2f * Time.deltaTime);
-
-        float newScore = ((int)(this.hippoSpawn.lastHighestHitPoint*100));
+        int newScore = ((int)(this.hippoSpawn.lastHighestHitPoint*100));
 
         if (newScore > this.score)
         {
+            this.score = newScore;
+        }
+
+        if (!this.isHighScore)
+        {
             text.SetText(newScore.ToString());
 
-            this.score = newScore;
+        }
+        else if (this.isHighScore)
+        {
+            text.SetText(this.score.ToString());
         }
 
     }
